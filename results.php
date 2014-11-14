@@ -12,15 +12,15 @@
 	
 		<?php
 
-			function getTimeStamp(string time, string month, string day, string year)
+			function getTimeStamp($time, $month, $day, $year)
 			{
-				var time = day + "/" + month + "/" + year + ":" + time;
+				$time = $day + "/" + $month + "/" + $year + ":" + $time;
 				return strtotime(time);
 			}
 
-			function getArrivalTime(int startTimeStamp, int durationMinutes)
+			function getArrivalTime($startTimeStamp, $durationMinutes)
 			{
-				return startTimeStamp + (durationMinutes * 60);
+				return $startTimeStamp + ($durationMinutes * 60);
 			}
 
 
