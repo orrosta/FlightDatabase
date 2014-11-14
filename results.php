@@ -11,6 +11,19 @@
 		<p> This is a test.</p>
 	
 		<?php
+
+			function getTimeStamp(string time, string month, string day, string year)
+			{
+				var time = day + "/" + month + "/" + year + ":" + time;
+				return strtotime(time);
+			}
+
+			function getArrivalTime(int startTimeStamp, int durationMinutes)
+			{
+				return startTimeStamp + (durationMinutes * 60);
+			}
+
+
 			$servername = "mysql.cis.ksu.edu";
 			$username = "cis562_flights";
 			$password = "b3stP4SSW0RD3v3r";
@@ -24,6 +37,9 @@
 			} 
 
 			$sql = "SELECT AirlineID, Name, ICAO, Country FROM airlines LIMIT 25";
+
+
+
 			$result = $conn->query($sql);
 
 			if ($result->num_rows > 0) {
@@ -35,6 +51,10 @@
 				echo "0 results";
 			}
 			$conn->close();
+
+
+
+
 		?>
 
 	</body>
