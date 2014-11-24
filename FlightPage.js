@@ -1,1 +1,0 @@
-function FindFlights(){window.alert("sometext");}

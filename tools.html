@@ -1,22 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
 
+<html lang="en">
 <head>
 	<!-- Meta Data -->
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>CIS562 Flights</title>
 
-    <!-- Bootstrap Core CSS -->
+    <!-- CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/cloud.css" rel="stylesheet">
+    <link href="css/jquery.nouislider.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=La+Belle+Aurore|Smythe' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
+
+    <!-- Connect to Database -->
+    <?php include 'php/config.php'; ?>
+    
     <!-- Navigation Bar -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
+    <div class="container">
 			<ul class="nav navbar-nav">
 				<li>
-					<a href="index.html">Flights</a>
+					<a href="index.php">Flights</a>
 				</li>
 				<li>
 					<a href="about.html">About</a>
@@ -25,91 +33,67 @@
 					<a href="tools.html">Tools</a>
 				</li>
 			</ul>
-        </div>
+    </div>
     </nav>
+    
+    <!-- Decorative Cloud Background -->
+    <div id="clouds">
+	       <div class="cloud x1"></div>
+	       <div class="cloud x2"></div>
+	       <div class="cloud x3"></div>
+	       <div class="cloud x4"></div>
+	       <div class="cloud x5"></div>               
 
     <!-- Page Content -->
-    <div class="container">
+    <div class="container" style="position:absolute;top:-50px;margin-left:15%;width:70%">
 	
         <!-- Jumbotron Header -->
-        <header class="jumbotron">
-		
-			<!-- Course Description -->
-			<h2>CIS562 Enterprise Information Systems</h2>
-            <p>A Kansas State University Computing and Information Sciences course for learning about database use, creation, execution, and management in the working world.
-			This CIS562 flight look-up group project was assigned by Professor Stephane Faroult in Fall 2014 to encourage students to practice and show-off their SQL production skills.</p>
-            <p><a class="btn btn-primary btn-large" href="http://catalog.k-state.edu/preview_course_nopop.php?catoid=2&coid=4199">See K-State's Course Listing</a></p>
+      <header class="jumbotron">
+        <h1 style="font-family:'Smythe', cursive;">Tools and Resources</h1>
 			
-		</header>
-			
-		<!-- Tools Data -->
-		<div class="row">
-			<div class="col-xs-6 col-md-3">
-				<div class="thumbnail">
-					<img data-src="holder.js/300x300" alt="MySQLi">
-					<div class="caption">
-						<h3>MySQLi</h3>
-						<p>Description of MySQLi here.</p>
-						<p>
-                            <a href="http://people.cis.ksu.edu/~sabran1/" class="btn btn-primary">Visit</a>
-                        </p>
-					</div>
-				</div>
-			</div>
-			<div class="col-xs-6 col-md-3">
-				<div class="thumbnail">
-					<img data-src="holder.js/300x300" alt="PHP">
-					<div class="caption">
-						<h3>PHP</h3>
-						<p>Description of PHP here.</p>
-						<p>
-                            <a href="http://people.cis.ksu.edu/~whielc/" class="btn btn-primary">Visit</a>
-                        </p>
-					</div>
-				</div>
-			</div>
-			<div class="col-xs-6 col-md-3">
-				<div class="thumbnail">
-					<img data-src="holder.js/300x300" alt="HTML5">
-					<div class="caption">
-						<h3>HTML5</h3>
-						<p>Description of HTML5 here.</p>
-						<p>
-                            <a href="http://en.wikipedia.org/wiki/HTML5" class="btn btn-primary">Visit</a>
-                        </p>
-					</div>
-				</div>
-			</div>
-			<div class="col-xs-6 col-md-3">
-				<div class="thumbnail">
-					<img data-src="holder.js/300x300" alt="Bootstrap">
-					<div class="caption">
-						<h3>Bootstrap</h3>
-						<p>Description of Bootstrap here.</p>
-						<p>
-                            <a href="http://people.cis.ksu.edu/~johnbos/" class="btn btn-primary">Visit</a>
-                        </p>
-					</div>
-				</div>
-			</div>
-		</div>
+			  <!-- Class Description -->
+        <div class="row">
+     <div class="col-xs-6 col-md-3">
+       <a href="#" class="thumbnail">
+         <img data-src="holder.js/100%x180" alt="...">
+       </a>
+     </div>
+     ...
+   </div>
+   <div class="row">
+     <div class="col-xs-6 col-md-3">
+       <a href="#" class="thumbnail">
+         <img data-src="holder.js/100%x180" alt="...">
+       </a>
+     </div>
+     ...
+   </div>
+      </header>
+        
+        <!-- Tools Data -->
+   <div class="row">
+     <div class="col-xs-6 col-md-3">
+       <a href="#" class="thumbnail">
+         <img data-src="holder.js/100%x180" alt="...">
+       </a>
+     </div>
+     ...
+   </div>
 		
         <!-- Footer -->
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; S. Ali, J. Bostrom, M. Cox, C. Wiehl 2014</p>
+                    <p>Created by S. Ali, J. Bostrom, M. Cox, and C. Wiehl 2014</p>
                 </div>
             </div>
         </footer>
-		
+    </div>
     </div>
     <!-- /.container -->
-
-    <!-- jQuery -->
+    
+    <!-- Javascript and jQuery -->
     <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 
 </body>
