@@ -23,7 +23,8 @@
 
       function getRout($departure, $destination, $min_dep_time, $max_dep_time, $weekday, $conn)
    {
-    
+
+      //cho  "(".multiFlight($departure, $destination, $min_dep_time, $max_dep_time, $weekday, $conn).") UNION (".nonstop($departure, $destination, $min_dep_time, $max_dep_time, $weekday).") Order by duration Limit 25";
       if(intval($conn) == 0)
         return nonstop($departure, $destination, $min_dep_time, $max_dep_time, $weekday);
       else
@@ -47,6 +48,7 @@
         a.Country as a_country,
         a.Tz as a_tz,
         f.duration as duration1,
+        null as layover1,
         null as flightnum2,
         null as duration2,
         null as arrival2,
@@ -90,6 +92,7 @@
     f.Country as a_country, 
     f.Tz as a_tz,
     f.duration as duration1,
+    timediff(cast(f2.adjusted_dep_time as time), ADDTIME(cast(f.adjusted_dep_time as time), sec_to_time(f.duration * 60))) as layover1,
     f2.flightnum as flightnum2,
     f2.duration as duration2, 
     f2.arrival as arrival2,
@@ -144,16 +147,17 @@
 
     ON f2.departure = f.arrival
       AND cast(f2.adjusted_dep_time as time) > ADDTIME(cast(f.adjusted_dep_time as time),sec_to_time(f.duration * 60))
+      AND time_to_sec(timediff(cast(f2.adjusted_dep_time as time), ADDTIME(cast(f.adjusted_dep_time as time), sec_to_time(f.duration * 60)))) / 60 > 39
          
     order by duration Limit 25";
      return $sql;      
    }
 
-   function displayRoutes($result){
+   function displayRoutes($result, $date){
     if ($result->num_rows > 0) {
       $i = 1;
       while($row = $result->fetch_assoc()) {
-        $arrivalTime = dtConvert($date, $row["dep_time"], $row["a_tz"], $row["b_tz"], $row["duration"]);
+        $arrivalTime = dtConvert($date, $row["dep_time"], $row["a_tz"], $row["b_tz"], intval($row["duration"]));
         echo "<table class=\"table table-bordered table-striped\">
                  <tr>
                      <th>Itinerary</th>
@@ -181,7 +185,7 @@
              </table>";
       }
     } else {
-      echo "blah";
+      echo "No flights found.";
     }
    }
 
