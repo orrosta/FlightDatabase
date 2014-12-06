@@ -24,7 +24,7 @@
       function getRout($departure, $destination, $min_dep_time, $max_dep_time, $weekday, $conn)
    {
 
-      //cho  "(".multiFlight($departure, $destination, $min_dep_time, $max_dep_time, $weekday, $conn).") UNION (".nonstop($departure, $destination, $min_dep_time, $max_dep_time, $weekday).") Order by duration Limit 25";
+      //echo  "(".multiFlight($departure, $destination, $min_dep_time, $max_dep_time, $weekday, $conn).") UNION (".nonstop($departure, $destination, $min_dep_time, $max_dep_time, $weekday).") Order by duration Limit 25";
       if(intval($conn) == 0)
         return nonstop($departure, $destination, $min_dep_time, $max_dep_time, $weekday);
       else
