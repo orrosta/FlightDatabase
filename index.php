@@ -132,11 +132,11 @@
           <span class="input-group-addon">Departure</span>
 				  <select class="form-control" name="icao1" id="icao1">
 						<?php
-		            $sql="SELECT DISTINCT departure FROM flights ORDER BY departure";
+		            			$sql="SELECT DISTINCT departure FROM flights ORDER BY departure";
 								$query = mysqli_query($db, $sql);
 								while ($row=mysqli_fetch_assoc($query)) {
 								    echo "<option value='".$row['departure']."'>".$row['departure']."</option>";
-                }
+                				}
 						?>
           </select>
           <span class="input-group-addon"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span></span>
