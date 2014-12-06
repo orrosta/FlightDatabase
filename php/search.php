@@ -23,6 +23,7 @@
 
       function getRout($departure, $destination, $min_dep_time, $max_dep_time, $weekday, $conn)
    {
+    
       if(intval($conn) == 0)
         return nonstop($departure, $destination, $min_dep_time, $max_dep_time, $weekday);
       else
